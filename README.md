@@ -1,2 +1,2 @@
 # Website Minecraft Server
-valcraft.dpdns.org
+https://valcraft.dpdns.org
