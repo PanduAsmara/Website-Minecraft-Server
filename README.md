@@ -60,28 +60,6 @@ Valcraft/
 
 ---
 
-# 🚀 Getting Started
-
-Clone this repository:
-
-```bash
-git clone https://github.com/USERNAME/REPOSITORY.git
-```
-
-Open project folder:
-
-```bash
-cd REPOSITORY
-```
-
-Run the website:
-
-```bash
-index.html
-```
-
----
-
 # 🌍 Deployment
 
 You can deploy this project easily using:
