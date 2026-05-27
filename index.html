@@ -4,353 +4,309 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ValCraft Network | Indonesian Minecraft Survival</title>
+  <meta name="description" content="ValCraft adalah server Minecraft survival Indonesia terbaik. RPG, Quest, Economy, Land Claim, dan Event mingguan. Join sekarang di valcraft.dpdns.org!" />
+  <meta property="og:title" content="ValCraft Network | Indonesian Minecraft Survival" />
+  <meta property="og:description" content="Server Minecraft survival Indonesia dengan fitur RPG, Quest, Economy, dan komunitas yang ramah." />
+  <meta property="og:url" content="https://valcraft.dpdns.org" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#ffb000" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* HIDE SCROLLBAR TOTAL (Clean Look) */
-    /* Untuk Chrome, Safari, dan Opera */
-    ::-webkit-scrollbar {
-      display: none;
-    }
-
-    /* Untuk IE, Edge, dan Firefox */
-    html {
-      -ms-overflow-style: none;  /* IE and Edge */
-      scrollbar-width: none;  /* Firefox */
-    }
-
-    /* BASE SETTINGS */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: #0f172a;
-      background: linear-gradient(135deg, #0f172a, #111827, #1e293b);
-      color: white;
-      overflow-x: hidden;
-      min-height: 100vh;
-    }
-
-    /* GLOW EFFECTS */
-    .background-glow {
-      position: fixed;
-      width: 500px;
-      height: 500px;
-      background: rgba(255, 176, 0, 0.08);
-      border-radius: 50%;
-      filter: blur(120px);
-      top: -120px;
-      right: -120px;
-      z-index: -1;
-    }
-
-    .background-glow2 {
-      position: fixed;
-      width: 400px;
-      height: 400px;
-      background: rgba(168, 85, 247, 0.08);
-      border-radius: 50%;
-      filter: blur(120px);
-      bottom: -100px;
-      left: -100px;
-      z-index: -1;
-    }
-
-    /* NAVIGATION */
-    nav {
-      width: 100%;
-      padding: 20px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      backdrop-filter: blur(15px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(15, 23, 42, 0.8);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .logo {
-      font-size: 26px;
-      font-weight: 700;
-      color: #ffb000;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #d1d5db;
-      transition: 0.3s;
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .nav-links a:hover {
-      color: #ffb000;
-    }
-
-    /* HERO SECTION */
-    .hero {
-      width: 100%;
-      padding: 100px 8% 60px;
-      text-align: center;
-    }
-
-    .hero-content {
-      max-width: 850px;
-      margin: 0 auto;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 8px 18px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 176, 0, 0.2);
-      color: #facc15;
-      margin-bottom: 24px;
-      font-size: 13px;
-    }
-
-    .hero h1 {
-      font-size: clamp(36px, 7vw, 68px);
-      line-height: 1.1;
-      margin-bottom: 20px;
-      font-weight: 800;
-    }
-
-    .hero h1 span {
-      background: linear-gradient(to right, #ffb000, #ff5e00);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero p {
-      color: #94a3b8;
-      font-size: clamp(16px, 2vw, 18px);
-      margin-bottom: 40px;
-    }
-
-    /* BUTTONS */
-    .buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .btn {
-      padding: 14px 28px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s ease;
-    }
-
-    .btn-primary {
-      background: linear-gradient(to right, #ffb000, #ff6a00);
-      color: white;
-      box-shadow: 0 10px 20px rgba(255, 176, 0, 0.2);
-    }
-
-    .btn-secondary {
-      border: 1px solid rgba(255,255,255,0.1);
-      color: white;
-      background: rgba(255,255,255,0.05);
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-    }
-
-    /* GRID SYSTEM 2x2 */
-    .info-section {
-      padding: 80px 8%;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: clamp(28px, 4vw, 36px);
-      margin-bottom: 50px;
-      font-weight: 700;
-    }
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-      max-width: 1100px;
-      margin: 0 auto;
-      align-items: stretch;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      padding: 30px;
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      transition: 0.4s ease;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(255, 176, 0, 0.4);
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .card h3 {
-      color: #ffb000;
-      margin-bottom: 15px;
-      font-size: 20px;
-    }
-
-    .card p {
-      color: #94a3b8;
-      font-size: 15px;
-      line-height: 1.6;
-      flex-grow: 1;
-    }
-
-    .server-ip-box {
-      margin-top: 15px;
-      background: rgba(0, 0, 0, 0.3);
-      padding: 12px;
-      border-radius: 12px;
-      font-family: monospace;
-      color: #facc15;
-      text-align: center;
-      border: 1px dashed rgba(250, 204, 21, 0.3);
-    }
-
-    /* FOOTER */
-    .footer {
-      padding: 40px 8%;
-      text-align: center;
-      color: #64748b;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      margin-top: 40px;
-    }
-
-    @media (max-width: 900px) {
-      .cards-grid {
-        grid-template-columns: 1fr;
-        max-width: 500px;
-      }
-      .nav-links { display: none; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
 <body>
 
-  <div class="background-glow"></div>
-  <div class="background-glow2"></div>
+  <!-- Particle Canvas Background -->
+  <canvas id="particles-canvas"></canvas>
+  <div class="bg-glow glow-top"></div>
+  <div class="bg-glow glow-bottom"></div>
 
-  <nav>
-    <div class="logo">ValCraft</div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#features">Features</a>
-      <a href="#server">Server Info</a>
-      <a href="https://dsc.gg/basecamp" target="_blank">Discord</a>
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-icon">⛏</span>
+        <span>Val<span class="logo-accent">Craft</span></span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#server" class="nav-link">Server Info</a>
+        <a href="#join" class="nav-link">Cara Join</a>
+        <a href="https://dsc.gg/basecamp" target="_blank" class="nav-discord">Discord</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
-  <section class="hero">
-    <div class="hero-content">
-      <div class="badge">✨ Indonesian Minecraft Survival Network</div>
-      <h1>Welcome to <span>ValCraft</span></h1>
-      <p>
-        Jelajahi dunia survival yang luas, bangun kerajaanmu sendiri, lawan monster, 
-        selesaikan quest, dan nikmati pengalaman bermain Minecraft yang aesthetic.
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div class="badge" data-aos="fade-down">✦ Indonesian Minecraft Survival Network ✦</div>
+      <h1 data-aos="fade-up" data-aos-delay="100">
+        Masuki Dunia<br>
+        <span class="gradient-text">ValCraft</span>
+      </h1>
+      <p data-aos="fade-up" data-aos-delay="200">
+        Jelajahi dunia survival yang luas, bangun kerajaanmu sendiri,<br class="hide-mobile">
+        lawan monster, selesaikan quest, dan nikmati komunitas yang seru.
       </p>
-      <div class="buttons">
-        <a href="https://dsc.gg/basecamp" target="_blank" class="btn btn-primary">Join Discord</a>
-        <a href="#server" class="btn btn-secondary">Server Info</a>
+      <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
+        <a href="#server" class="btn btn-primary">
+          <span class="btn-icon">🎮</span> Mulai Bermain
+        </a>
+        <a href="https://dsc.gg/basecamp" target="_blank" class="btn btn-outline">
+          <span class="btn-icon">💬</span> Join Discord
+        </a>
+      </div>
+
+      <!-- Server Status Bar -->
+      <div class="status-bar" data-aos="fade-up" data-aos-delay="400">
+        <div class="status-item">
+          <span class="status-dot online"></span>
+          <span>We’ll be back soon</span>
+        </div>
+        <div class="status-divider">|</div>
+        <div class="status-item">
+          <span>Java & Bedrock</span>
+        </div>
+        <div class="status-divider">|</div>
+        <div class="status-item">
+          <span>24/7 Uptime</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Minecraft blocks decoration -->
+    <div class="floating-block b1">🟫</div>
+    <div class="floating-block b2">🟩</div>
+    <div class="floating-block b3">💎</div>
+    <div class="floating-block b4">🔥</div>
+    <div class="floating-block b5">⭐</div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">Kenapa ValCraft?</span>
+        <h2>Bukan Server Biasa</h2>
+        <p>Dibangun dengan passion untuk komunitas Minecraft Indonesia</p>
+      </div>
+      <div class="cards-grid" id="aboutGrid">
+        <div class="card" data-aos="fade-up" data-aos-delay="0">
+          <div class="card-icon">🌍</div>
+          <h3>Open World</h3>
+          <p>Jelajahi dunia survival, dungeon, dan adventure map penuh misteri dengan monster dan quest menarik yang menantang.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="80">
+          <div class="card-icon">⚔️</div>
+          <h3>RPG & Quest</h3>
+          <p>Temui NPC unik, ambil quest harian, lawan boss raksasa, dan kumpulkan material untuk membuat equipment dewa.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="160">
+          <div class="card-icon">🏘️</div>
+          <h3>Community</h3>
+          <p>Bangun kota megah bersama teman, sistem trading yang aman, dan nikmati komunitas tanpa toxic setiap hari.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="240">
+          <div class="card-icon">🧙</div>
+          <h3>Adventure</h3>
+          <p>Rasakan eksplorasi imersif dengan custom mob dan item eksklusif yang tidak akan kamu temukan di server lain.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="info-section" id="about">
-    <h2 class="section-title">Why Play ValCraft?</h2>
-    <div class="cards-grid">
-      <div class="card">
-        <h3>🌍 Open World</h3>
-        <p>Jelajahi dunia survival, dungeon, dan adventure map penuh misteri dengan monster dan quest menarik yang menantang.</p>
+  <!-- FEATURES SECTION -->
+  <section class="section section-alt" id="features">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">Fitur Unggulan</span>
+        <h2>Game Features</h2>
+        <p>Semua yang kamu butuhkan untuk pengalaman Minecraft terbaik</p>
       </div>
-      <div class="card">
-        <h3>⚔️ RPG & Quest</h3>
-        <p>Temui NPC unik, ambil quest harian, lawan boss raksasa, dan kumpulkan material untuk membuat equipment dewa.</p>
-      </div>
-      <div class="card">
-        <h3>🏠 Community</h3>
-        <p>Bangun kota megah bersama teman, sistem trading yang aman, dan nikmati komunitas tanpa toxic setiap hari.</p>
-      </div>
-      <div class="card">
-        <h3>🧙 Adventure</h3>
-        <p>Rasakan pengalaman eksplorasi yang imersif dengan custom mob dan item yang tidak akan kamu temukan di server lain.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="info-section" id="features">
-    <h2 class="section-title">Game Features</h2>
-    <div class="cards-grid">
-      <div class="card">
-        <h3>⚡ Smooth Performance</h3>
-        <p>Server dioptimasi tinggi menggunakan hardware terbaru untuk menjamin gameplay yang smooth dan stabil tanpa lag.</p>
-      </div>
-      <div class="card">
-        <h3>🎁 Weekly Events</h3>
-        <p>Ikuti event mingguan seperti parkour, pvp tournament, dan scavenger hunt untuk memenangkan hadiah menarik.</p>
-      </div>
-      <div class="card">
-        <h3>🛡️ Land Claim</h3>
-        <p>Lindungi bangunan berhargamu dengan sistem land claim yang mudah digunakan. Keamanan kreasi kamu terjamin.</p>
-      </div>
-      <div class="card">
-        <h3>📦 Player Economy</h3>
-        <p>Bangun toko pribadimu, kumpulkan kekayaan, dan jadilah player terkaya di seluruh ValCraft Network.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="info-section" id="server">
-    <h2 class="section-title">Server Connection</h2>
-    <div class="cards-grid">
-      <div class="card">
-        <h3>🖥️ Server IP</h3>
-        <p>Gunakan alamat IP di bawah ini untuk masuk ke server.</p>
-        <div class="server-ip-box">valcraft.nexhost.com:19475</div>
-      </div>
-      <div class="card">
-        <h3>🎮 Versions</h3>
-        <p>Mendukung Minecraft Java Edition dan Bedrock Edition (HP/Console) untuk semua versi terbaru.</p>
+      <div class="features-list">
+        <div class="feature-item" data-aos="fade-right" data-aos-delay="0">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-body">
+            <h3>Smooth Performance</h3>
+            <p>Server dioptimasi tinggi menggunakan hardware terbaru untuk menjamin gameplay yang smooth dan stabil tanpa lag.</p>
+          </div>
+        </div>
+        <div class="feature-item" data-aos="fade-right" data-aos-delay="80">
+          <div class="feature-icon">🎁</div>
+          <div class="feature-body">
+            <h3>Weekly Events</h3>
+            <p>Ikuti event mingguan seperti parkour, PvP tournament, dan scavenger hunt untuk memenangkan hadiah menarik.</p>
+          </div>
+        </div>
+        <div class="feature-item" data-aos="fade-right" data-aos-delay="160">
+          <div class="feature-icon">🛡️</div>
+          <div class="feature-body">
+            <h3>Land Claim</h3>
+            <p>Lindungi bangunan berhargamu dengan sistem land claim yang mudah digunakan. Keamanan kreasi kamu terjamin 100%.</p>
+          </div>
+        </div>
+        <div class="feature-item" data-aos="fade-right" data-aos-delay="240">
+          <div class="feature-icon">📦</div>
+          <div class="feature-body">
+            <h3>Player Economy</h3>
+            <p>Bangun toko pribadimu, kumpulkan kekayaan, dan jadilah player terkaya di seluruh ValCraft Network.</p>
+          </div>
+        </div>
+        <div class="feature-item" data-aos="fade-right" data-aos-delay="320">
+          <div class="feature-icon">🗺️</div>
+          <div class="feature-body">
+            <h3>Custom Maps</h3>
+            <p>Dunia dengan biome dan struktur custom buatan tim builder ValCraft yang berpengalaman.</p>
+          </div>
+        </div>
+        <div class="feature-item" data-aos="fade-right" data-aos-delay="400">
+          <div class="feature-icon">🏆</div>
+          <div class="feature-body">
+            <h3>Leaderboard & Rank</h3>
+            <p>Bersaing dengan player lain di leaderboard global dan raih rank tertinggi di ValCraft.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- SERVER INFO SECTION -->
+  <section class="section" id="server">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">Cara Connect</span>
+        <h2>Server Connection</h2>
+        <p>Salin IP server dan langsung masuk ke dunia ValCraft</p>
+      </div>
+      <div class="server-cards">
+        <div class="server-card" data-aos="zoom-in" data-aos-delay="0">
+          <div class="server-card-header">
+            <span class="server-edition-badge java">☕ Java Edition</span>
+          </div>
+          <div class="server-ip-display" id="javaIP">valcraft.nexhostku.com</div>
+          <div class="server-port">Port: 19475</div>
+          <button class="copy-btn" onclick="copyIP('valcraft.nexhostku.com', this)">
+            <span class="copy-icon">📋</span> Copy IP
+          </button>
+        </div>
+        <div class="server-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="server-card-header">
+            <span class="server-edition-badge bedrock">📱 Bedrock Edition</span>
+          </div>
+          <div class="server-ip-display" id="bedrockIP">valcraft.nexhostku.com</div>
+          <div class="server-port">Port: 19475</div>
+          <button class="copy-btn" onclick="copyIP('valcraft.nexhostku.com:19475', this)">
+            <span class="copy-icon">📋</span> Copy IP
+          </button>
+        </div>
+        <div class="server-card server-card-wide" data-aos="zoom-in" data-aos-delay="200">
+          <div class="server-specs">
+            <div class="spec-item">
+              <span class="spec-label">Versi</span>
+              <span class="spec-value">1.20.x+</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Mode</span>
+              <span class="spec-value">Survival RPG</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Lokasi</span>
+              <span class="spec-value">🇮🇩 Indonesia</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Uptime</span>
+              <span class="spec-value">24/7</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO JOIN SECTION -->
+  <section class="section section-alt" id="join">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">Tutorial</span>
+        <h2>Cara Join Server</h2>
+        <p>Ikuti langkah berikut untuk mulai bermain</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step" data-aos="fade-up" data-aos-delay="0">
+          <div class="step-number">01</div>
+          <h3>Buka Minecraft</h3>
+          <p>Pastikan kamu menggunakan Minecraft Java atau Bedrock versi terbaru.</p>
+        </div>
+        <div class="step" data-aos="fade-up" data-aos-delay="100">
+          <div class="step-number">02</div>
+          <h3>Multiplayer</h3>
+          <p>Pilih menu <strong>Multiplayer</strong> (Java) atau <strong>Friends → External Server</strong> (Bedrock).</p>
+        </div>
+        <div class="step" data-aos="fade-up" data-aos-delay="200">
+          <div class="step-number">03</div>
+          <h3>Masukkan IP</h3>
+          <p>Ketik <code>valcraft.nexhostku.com:19475</code> di kolom server address dan save.</p>
+        </div>
+        <div class="step" data-aos="fade-up" data-aos-delay="300">
+          <div class="step-number">04</div>
+          <h3>Join & Enjoy!</h3>
+          <p>Klik Join Server dan selamat datang di dunia ValCraft! Jangan lupa join Discord kami.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section" data-aos="fade-up">
+    <div class="cta-inner">
+      <h2>Siap Memulai Petualangan?</h2>
+      <p>Petualangan baru dimulai. Giliran kamu sekarang!</p>
+      <div class="cta-buttons">
+        <a href="https://dsc.gg/basecamp" target="_blank" class="btn btn-primary btn-large">
+          💬 Join Discord
+        </a>
+        <a href="#server" class="btn btn-glass btn-large">
+          🎮 Lihat Server Info
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="footer">
-    <p>© 2026 ValCraft Network • Crafted for Indonesian Minecrafters</p>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo">⛏ Val<span class="logo-accent">Craft</span></span>
+        <p>Server Minecraft Survival Indonesia</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigasi</h4>
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#server">Server Info</a>
+        <a href="#join">Cara Join</a>
+      </div>
+      <div class="footer-links">
+        <h4>Community</h4>
+        <a href="https://dsc.gg/basecamp" target="_blank">Discord</a>
+        <a href="https://github.com/PanduAsmara/Website-Minecraft-Server" target="_blank">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 ValCraft Network · Crafted with ❤️ for Indonesian Minecrafters</p>
+    </div>
   </footer>
 
+  <!-- Toast notification -->
+  <div class="toast" id="toast">✅ IP copied to clipboard!</div>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
